@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Text
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.imageFromResource
@@ -32,45 +33,59 @@ class MainActivity : AppCompatActivity() {
                 }
             }*/
             ScrollableColumn(
-                    modifier = Modifier
-                            //.fillMaxHeight() for fill the max height
-                            //.fillMaxWidth()  for fill the max width
-                            //or
-                            .fillMaxSize()
-                            .background(color = Color(0xFFF2F2F2))
+                modifier = Modifier
+                    //.fillMaxHeight() for fill the max height
+                    //.fillMaxWidth()  for fill the max width
+                    //or
+                    .fillMaxSize()
+                    .background(color = Color(0xFFF2F2F2))
             ) {
                 Image(
-                        bitmap = imageFromResource(
-                                res = resources,
-                                resId = R.drawable.happy_meal_small
-                        ),
-                        modifier = Modifier.height(300.dp),
-                        contentScale = ContentScale.Crop,
+                    bitmap = imageFromResource(
+                        res = resources,
+                        resId = R.drawable.happy_meal_small
+                    ),
+                    modifier = Modifier.height(300.dp),
+                    contentScale = ContentScale.Crop,
 
-                        )
+                    )
                 Column(
-                        modifier = Modifier.padding(16.dp)
+                    modifier = Modifier.padding(16.dp)
                 ) {
-                    Text(
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
                             text = "Happy Meal",
                             style = TextStyle(
-                                    fontSize = TextUnit.Companion.Sp(26)
-                            )
-                    )
-                    Spacer(modifier = Modifier.padding(top = 10.dp))
-                    Text(
-                            text = "800 Calories",
-                            style = TextStyle(
-                                    fontSize = TextUnit.Companion.Sp(17)
-                            )
-                    )
-                    Spacer(modifier = Modifier.padding(top = 10.dp))
-                    Text(
+                                fontSize = TextUnit.Companion.Sp(26)
+                            ),
+                            modifier = Modifier.align(Alignment.CenterVertically)
+                        )
+                        Text(
                             text = "Rs 5.99",
                             style = TextStyle(
-                                    color = Color(0xFF85bb65),
-                                    fontSize = TextUnit.Companion.Sp(17)
-                            ))
+                                color = Color(0xFF85bb65),
+                                fontSize = TextUnit.Companion.Sp(17)
+                            )
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.padding(top = 10.dp))
+                    Text(
+                        text = "800 Calories",
+                        style = TextStyle(
+                            fontSize = TextUnit.Companion.Sp(17)
+                        )
+                    )
+                    Spacer(modifier = Modifier.padding(top = 10.dp))
+                    Button(
+                        onClick = {},
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
+                    ) {
+                        Text(text = "ORDER NOW")
+                    }
                 }
             }
 
