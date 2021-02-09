@@ -21,17 +21,23 @@ import androidx.compose.ui.unit.dp
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
+        setContentView(R.layout.activity_main)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_container, RecipeListFragment())
+            .commit()
+        /*setContent {
             //testing content
-            /*Column(
+            *//*Column(
                     modifier = Modifier.padding(16.dp)
             ) {
                 Text(text = "Hey look some text")
                 Spacer(modifier = Modifier.padding(top=10.dp))
-                Button(onClick = { *//*TODO*//* }) {
+                Button(onClick = { *//**//*TODO*//**//* }) {
                     Text(text = "A Button")
                 }
-            }*/
+            }*//*
+            //demo of rows and columns
             ScrollableColumn(
                 modifier = Modifier
                     //.fillMaxHeight() for fill the max height
@@ -90,7 +96,7 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-        }
+        }*/
 
 
     }
